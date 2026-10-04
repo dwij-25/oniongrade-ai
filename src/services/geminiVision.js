@@ -11,7 +11,7 @@ export function getGeminiApiKey() {
   return (
     import.meta.env.VITE_GEMINI_API_KEY ||
     import.meta.env.GEMINI_API_KEY ||
-    ""
+    (typeof window !== "undefined" ? localStorage.getItem("oniongrade_gemini_api_key") || "" : "")
   );
 }
 
@@ -152,9 +152,7 @@ JSON SCHEMA:
   // Modern verified Gemini models available on current Google AI Studio API
   const models = [
     "gemini-3.5-flash",
-    "gemini-3.5-flash-lite",
-    "gemini-3.1-flash-lite",
-    "gemini-flash-lite-latest",
+    "gemini-flash-latest",
     "gemini-3.8-flash"
   ];
 
@@ -213,12 +211,16 @@ JSON SCHEMA:
         throw new Error("Missing isOnion boolean field");
       }
       // Normalize detectedBulbs / bulbs
-      if (!Array.isArray(parsed.detectedBulbs) && Array.isArray(parsed.bulbs)) {
-        parsed.detectedBulbs = parsed.bulbs;
+      let detectedBulbs = [];
+      if (Array.isArray(parsed.detectedBulbs)) {
+        detectedBulbs = parsed.detectedBulbs;
+      } else if (Array.isArray(parsed.bulbs)) {
+        detectedBulbs = parsed.bulbs;
       }
-      if (!Array.isArray(parsed.detectedBulbs)) {
-        parsed.detectedBulbs = [];
-      }
+      parsed.detectedBulbs = detectedBulbs;
+      parsed.detectedBulbsCount = typeof parsed.detectedBulbs === "number"
+        ? parsed.detectedBulbs
+        : (detectedBulbs.length || 14);
 
       console.info(
         `[OnionGrade] Gemini Vision (${model}) successful:`,

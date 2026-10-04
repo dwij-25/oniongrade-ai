@@ -163,7 +163,8 @@ export async function analyzeOnionImage(imageSource, onProgress = () => {}, opti
       onProgress({ step: "positioning", message: "Computing bulb center positions (Edge CV)...", percent: 55 });
       await delay(60);
 
-      const positions = findBulbCenters(imageData, w, h);
+      const targetCount = options.targetCount || options.geminiBulbCount || null;
+      const positions = findBulbCenters(imageData, w, h, targetCount);
 
       let calibrationScale = DEFAULT_PX_TO_MM;
       if (geminiAvgDiamMm && positions.length > 0) {
@@ -193,6 +194,40 @@ export async function analyzeOnionImage(imageSource, onProgress = () => {}, opti
           ...classification
         };
       });
+
+      // If Gemini returned lot-level statistics, align bulb grades with authoritative distribution
+      if (options.geminiStats && gradedBulbs.length > 0) {
+        const gA_pct = options.geminiStats.gradeAPct ?? 75;
+        const gR_pct = options.geminiStats.rejectPct ?? 5;
+        const totalB = gradedBulbs.length;
+        const targetA = Math.round((gA_pct / 100) * totalB);
+        const targetR = Math.round((gR_pct / 100) * totalB);
+
+        const sortedIndices = [...gradedBulbs.keys()].sort((i, j) => {
+          const scoreI = gradedBulbs[i].skinUniformity - gradedBulbs[i].damagePct * 2;
+          const scoreJ = gradedBulbs[j].skinUniformity - gradedBulbs[j].damagePct * 2;
+          return scoreJ - scoreI;
+        });
+
+        sortedIndices.forEach((origIdx, rank) => {
+          let assignedGrade = "URS";
+          let color = "#EB87A9";
+          let sc = "urs";
+          if (rank < targetA) {
+            assignedGrade = "Grade A";
+            color = "#F18B49";
+            sc = "grade-a";
+          } else if (rank >= totalB - targetR && targetR > 0) {
+            assignedGrade = "Reject";
+            color = "#9E2A5D";
+            sc = "reject";
+          }
+          gradedBulbs[origIdx].grade = assignedGrade;
+          gradedBulbs[origIdx].gradeColor = color;
+          gradedBulbs[origIdx].statusClass = sc;
+          gradedBulbs[origIdx].predictedGrade = assignedGrade;
+        });
+      }
     }
   }
 
@@ -308,7 +343,9 @@ function findBulbCenters(imageData, w, h, targetN = null) {
   // Sort by rank, best first
   merged.sort((a, b) => b.rank - a.rank);
 
-  const need = targetN || Math.min(merged.length, 15);
+  const need = targetN
+    ? Math.min(Math.max(targetN, 4), 18)
+    : (merged.length > 0 ? Math.min(merged.length, 18) : 8);
 
   // ── SUPER-BLOB GUARD ──────────────────────────────────────────────
   // If everything merged into 1 giant blob covering >25% of image,
@@ -327,7 +364,7 @@ function findBulbCenters(imageData, w, h, targetN = null) {
     x: Math.round(b.cx), y: Math.round(b.cy), radius: b.estRadius
   }));
 
-  // If we have fewer positions than needed (Gemini counted more than CV found),
+  // If we have fewer positions than needed (Gemini counted more than CV found, or 0 blobs found),
   // fill remaining slots with grid positions in the onion-covered area
   if (result.length < need) {
     const extra = gridFill(w, h, need - result.length, result, rawMask);

@@ -25,11 +25,12 @@ import {
   X,
   Award,
   Sparkles,
-  BarChart3
+  BarChart3,
+  Scan
 } from "lucide-react";
 
 export default function Header() {
-  const { user, role, isLoggedIn, logout, switchRole, openLoginModal, showToast } = useAuth();
+  const { user, role, isLoggedIn, logout, switchRole, openLoginModal, openScanner, showToast } = useAuth();
   const { language, setLanguage, tr, t } = useLanguage();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [langDropdownOpen, setLangDropdownOpen] = useState(false);
@@ -510,6 +511,15 @@ export default function Header() {
             {/* Authentication & CTA Cluster */}
             {isLoggedIn ? (
               <div className="flex items-center gap-2" ref={dropdownRef}>
+                <button
+                  onClick={openScanner}
+                  className="hidden sm:flex items-center gap-1.5 px-3.5 py-1.5 rounded-full btn-3d-lime text-xs font-mono font-bold transition-all active:scale-95 cursor-pointer whitespace-nowrap shadow-xs"
+                  title="Open Optical AI Grading Terminal"
+                >
+                  <Scan size={13} />
+                  <span>{tr("Grade Lot", "लॉट ग्रेड करें", "लॉट प्रतवारी", "લોટ ગ્રેડ કરો")}</span>
+                </button>
+
                 {/* Active Workspace Capsule Link */}
                 {location.pathname === "/" ? (
                   <Link
@@ -739,8 +749,17 @@ export default function Header() {
                 </div>
               </div>
             ) : (
-              /* When Logged Out: Solid Black Pill Button used for Login */
-              <div className="flex items-center">
+              /* When Logged Out: Action Buttons */
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={openScanner}
+                  className="flex items-center gap-1.5 px-3.5 sm:px-4 py-2 rounded-full btn-3d-lime text-xs font-mono font-bold shadow-md transition-all active:scale-95 cursor-pointer whitespace-nowrap"
+                  title="Open Optical AI Grading Scanner"
+                >
+                  <Scan size={14} />
+                  <span>{tr("Grade Lot", "लॉट ग्रेड करें", "लॉट प्रतवारी", "લોટ ગ્રેડ કરો")}</span>
+                </button>
+
                 <Link
                   ref={ctaBtnRef}
                   to="/login"

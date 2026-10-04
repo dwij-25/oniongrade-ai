@@ -356,14 +356,21 @@ export default function PublicLanding({ onOpenLoginWithRole }) {
                 </div>
               </div>
 
-              {/* Hardware Calibration Specification Pill (button removed) */}
-              <div className="w-full py-2 px-3.5 rounded-full bg-[#000000] text-[#F8D5C2] text-xs font-mono font-bold flex items-center justify-between shadow-inner border border-black/10">
+              {/* Hardware Calibration & Terminal Launcher Button */}
+              <button
+                type="button"
+                onClick={openScanner}
+                className="w-full py-2 px-3.5 rounded-full btn-3d-lime text-xs font-mono font-bold flex items-center justify-between shadow-md cursor-pointer hover:scale-[1.02] active:scale-95 transition-all group"
+                title="Launch Optical AI Grading Scanner"
+              >
                 <div className="flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-[#F18B49] animate-pulse" />
-                  <span className="text-[11px] text-[#F8D5C2]">{tr("Multi-spectral Lens", "मल्टी-स्पेक्ट्रल लेंस", "मल्टी-स्पेक्ट्रल लेन्स", "મલ્ટી-સ્પેક્ટ્રલ લેન્સ")}</span>
+                  <Scan size={14} className="text-[#000000]" />
+                  <span className="text-[11px] font-bold text-[#000000]">
+                    {tr("Launch AI Terminal", "एआई टर्मिनल शुरू करें", "एआय टर्मिनल सुरू करा", "AI ટર્મિનલ શરૂ કરો")}
+                  </span>
                 </div>
-                <span className="text-[10px] text-[#F18B49] font-bold">±0.05mm</span>
-              </div>
+                <ArrowRight size={13} className="text-[#000000] group-hover:translate-x-0.5 transition-transform" />
+              </button>
             </div>
 
             {/* Card 3: Mandi Yard Card with Watermark Frosted Badge */}

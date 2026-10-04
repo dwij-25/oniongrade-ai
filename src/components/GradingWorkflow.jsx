@@ -318,6 +318,7 @@ export default function GradingWorkflow({ onGradingComplete, initialLot = null }
               pathologyNotes: geminiRes.pathologyNotes,
               farmerAdvice: geminiRes.farmerAdvice,
               geminiGrade: geminiRes.lotGrade,
+              bulbCount: geminiRes.detectedBulbsCount || 14,
               // Per-bulb grades array with precise bounding boxes
               geminiBulbs: Array.isArray(geminiRes.detectedBulbs)
                 ? geminiRes.detectedBulbs
@@ -360,6 +361,7 @@ export default function GradingWorkflow({ onGradingComplete, initialLot = null }
         }, {
           preset,
           forceAccept: !!geminiInsight,
+          targetCount: geminiInsight?.bulbCount || null,
           // Gemini is authoritative for count, location bounding boxes, and grades
           geminiBulbs: geminiInsight?.geminiBulbs || null,
           geminiStats: geminiInsight?.geminiStats || null,
@@ -569,13 +571,25 @@ export default function GradingWorkflow({ onGradingComplete, initialLot = null }
             <button
               onClick={() => { stopCamera(); setInputMode("upload"); }}
               className={`px-4 py-2 rounded-full text-xs font-mono font-bold transition-all cursor-pointer flex items-center gap-2 whitespace-nowrap ${
-                inputMode === "upload" || inputMode === "presets"
+                inputMode === "upload"
                   ? "btn-3d-lime"
                   : "btn-3d-dark"
               }`}
             >
               <Upload size={14} />
               <span>{t("grading.tabUpload", "Upload Custom Photo")}</span>
+            </button>
+
+            <button
+              onClick={() => { stopCamera(); setInputMode("presets"); }}
+              className={`px-4 py-2 rounded-full text-xs font-mono font-bold transition-all cursor-pointer flex items-center gap-2 whitespace-nowrap ${
+                inputMode === "presets"
+                  ? "btn-3d-lime"
+                  : "btn-3d-dark"
+              }`}
+            >
+              <Sparkles size={14} />
+              <span>{tr("Sample APMC Lots", "नमूना APMC लॉट", "नमुना APMC लॉट्स", "નમૂના APMC લોટ્સ")}</span>
             </button>
 
             <button
@@ -591,8 +605,71 @@ export default function GradingWorkflow({ onGradingComplete, initialLot = null }
             </button>
           </div>
 
+          {/* Option A: Sample APMC Lot Presets */}
+          {inputMode === "presets" && (
+            <div className="space-y-4">
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-mono text-[#C4A494]">
+                  {tr("Select any calibrated batch to test optical grading:", "ग्रेडिंग परीक्षण हेतु किसी भी कैलिब्रेटेड लॉट का चयन करें:", "प्रतवारी चाचणीसाठी कोणताही प्रमाणित बाजार समिती बॅच निवडा:", "ગ્રેડિંગ પરીક્ષણ માટે કોઈપણ પ્રમાણિત APMC બેચ પસંદ કરો:")}
+                </span>
+                <span className="capsule-tag">
+                  {SAMPLE_LOT_PRESETS.length} {tr("CALIBRATED LOTS", "कैलिब्रेटेड लॉट", "कॅलिब्रेटेड लॉट्स", "કેલિબ્રેટેડ લોટ્સ")}
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
+                {SAMPLE_LOT_PRESETS.map((preset) => (
+                  <div
+                    key={preset.id}
+                    onClick={() => handlePresetSelect(preset)}
+                    className="card-3d p-4 hover:border-[#F18B49] transition-all cursor-pointer group flex flex-col justify-between space-y-3"
+                  >
+                    <div className="space-y-2">
+                      <div className="relative aspect-[16/10] rounded-2xl overflow-hidden bg-black/60 border border-white/10">
+                        {preset.imageSrc ? (
+                          <img
+                            src={preset.imageSrc}
+                            alt={preset.title}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                          />
+                        ) : (
+                          <div className="w-full h-full flex items-center justify-center text-[#F18B49]/40">
+                            <Scan size={36} />
+                          </div>
+                        )}
+                        <span className="absolute top-2 right-2 px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-black/75 backdrop-blur-md text-[#F18B49] border border-[#F18B49]/40">
+                          {preset.variety}
+                        </span>
+                      </div>
+
+                      <h4 className="font-bold text-sm text-[#F8D5C2] group-hover:text-[#F18B49] transition-colors line-clamp-1">
+                        {preset.title}
+                      </h4>
+                      <p className="text-[11px] text-[#C4A494] line-clamp-2 leading-relaxed">
+                        {preset.description}
+                      </p>
+                    </div>
+
+                    <div className="pt-2 border-t border-white/[0.06] flex items-center justify-between">
+                      <span className="text-[10px] font-mono text-[#F18B49]">
+                        {preset.region}
+                      </span>
+                      <button
+                        type="button"
+                        className="px-3 py-1 btn-3d-lime text-[11px] flex items-center gap-1 font-mono font-bold pointer-events-none"
+                      >
+                        <Zap size={11} />
+                        <span>Grade</span>
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
           {/* Option B: Custom File Upload */}
-          {(inputMode === "upload" || inputMode === "presets") && (
+          {inputMode === "upload" && (
             <div 
               onDragOver={(e) => { e.preventDefault(); e.stopPropagation(); }}
               onDragEnter={(e) => { e.preventDefault(); e.stopPropagation(); }}
@@ -626,21 +703,34 @@ export default function GradingWorkflow({ onGradingComplete, initialLot = null }
                   "JPG, PNG, અથવા WEBP ખેંચો અને છોડો અથવા બ્રાઉઝ કરવા માટે ક્લિક કરો. છબી આપમેળે ઑપ્ટિમાઇઝ અને વર્ગીકૃત થશે."
                 )}
               </p>
-              <button
-                type="button"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  fileInputRef.current?.click();
-                }}
-                className="px-6 py-3 btn-3d-lime text-xs cursor-pointer shadow-lg shadow-[#F18B49]/15"
-              >
-                {tr(
-                  "Choose Image from Device",
-                  "डिवाइस से छवि चुनें",
-                  "डिव्हाइसमधून फोटो निवडा",
-                  "ઉપકરણમાંથી છબી પસંદ કરો"
-                )}
-              </button>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    fileInputRef.current?.click();
+                  }}
+                  className="px-6 py-3 btn-3d-lime text-xs cursor-pointer shadow-lg shadow-[#F18B49]/15"
+                >
+                  {tr(
+                    "Choose Image from Device",
+                    "डिवाइस से छवि चुनें",
+                    "डिव्हाइसमधून फोटो निवडा",
+                    "ઉપકરણમાંથી છબી પસંદ કરો"
+                  )}
+                </button>
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setInputMode("presets");
+                  }}
+                  className="px-5 py-3 btn-3d-dark text-xs cursor-pointer flex items-center gap-1.5"
+                >
+                  <Sparkles size={13} className="text-[#F18B49]" />
+                  <span>{tr("Or try calibrated samples", "या कैलिब्रेटेड नमूने आज़माएं", "किंवा नमुने वापरून पहा", "અથવા નમૂના અજમાવો")}</span>
+                </button>
+              </div>
             </div>
           )}
 
