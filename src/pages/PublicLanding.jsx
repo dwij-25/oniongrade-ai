@@ -7,6 +7,7 @@ import { getLots } from "../services/storage";
 import DonutChart from "../components/DonutChart";
 import { ROLES, ROLE_INFO, DEFAULT_GRADE_CONFIG } from "../constants/rules";
 import { MODEL_METADATA, evaluateBulbWithTrainedModel } from "../services/trainedModel";
+import SihFooterBanner from "../components/SihFooterBanner";
 import {
   Sparkles,
   ShieldCheck,
@@ -34,7 +35,10 @@ import {
   Target,
   ArrowUpRight,
   Globe,
-  FileText
+  FileText,
+  ExternalLink,
+  MessageSquare,
+  AlertCircle
 } from "lucide-react";
 
 export default function PublicLanding({ onOpenLoginWithRole }) {
@@ -474,6 +478,172 @@ export default function PublicLanding({ onOpenLoginWithRole }) {
           </div>
         </div>
       </div>
+
+      {/* Ground Reality Case Study Card: Chandwad Protest & Mobiusi Dataset */}
+      <section id="case-study" className="max-w-6xl mx-auto px-4 sm:px-6 py-10 border-t border-white/[0.06] scroll-mt-20">
+        <div className="card-3d p-6 sm:p-8 bg-gradient-to-br from-[#1b0817] via-[#10040e] to-[#080207] border border-[#F18B49]/30 relative overflow-hidden shadow-2xl">
+          
+          {/* Subtle radial ambient glow */}
+          <div className="absolute -top-24 -right-24 w-80 h-80 bg-[#F18B49]/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute -bottom-24 -left-24 w-80 h-80 bg-[#5F1C47]/20 rounded-full blur-3xl pointer-events-none" />
+
+          {/* Section Header */}
+          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/[0.08] pb-4 mb-6">
+            <div className="flex items-center gap-2">
+              <span className="capsule-tag-dark text-[10px] sm:text-xs">
+                {tr("GROUND REALITY • CASE STUDY", "जमीनी हकीकत • केस स्टडी", "प्रत्यक्ष जमिनीवरील वास्तव • केस स्टडी", "વાસ્તવિક સ્થિતિ • કેસ સ્ટડી")}
+              </span>
+              <span className="text-[#C4A494] text-xs">•</span>
+              <span className="px-2.5 py-0.5 rounded-full bg-[#FF4D4D]/15 text-[#FF4D4D] border border-[#FF4D4D]/30 font-mono text-[10px] font-bold">
+                26 MAY 2026 • CHANDWAD, NASHIK
+              </span>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <span className="text-[11px] font-mono text-[#F18B49] font-bold">
+                {tr("SIH Problem Statement Validation", "SIH समस्या विवरण सत्यापन", "SIH समस्या विधान पडताळणी", "SIH સમસ્યા નિવેદન ચકાસણી")}
+              </span>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            
+            {/* Left: Authentic Protest Photo from PDF Slide 2 */}
+            <div className="lg:col-span-5 relative group">
+              <div className="relative rounded-2xl overflow-hidden border border-white/15 shadow-xl aspect-[4/3] bg-black">
+                <img
+                  src="/samples/chandwad_protest.jpg"
+                  alt="Chandwad Nashik Farmers Protest"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent pointer-events-none" />
+
+                {/* Overlaid Banner Info */}
+                <div className="absolute bottom-3 left-3 right-3 text-left">
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/75 backdrop-blur-md border border-[#F18B49]/40 text-[#F18B49] text-[10px] font-mono font-bold mb-1.5">
+                    <MapPin size={11} />
+                    <span>Chandwad APMC Highway Blockade, Nashik</span>
+                  </div>
+                  <p className="text-[11px] text-[#F8D5C2] font-mono leading-tight">
+                    {tr(
+                      "Farmers dumping onions demanding ₹24/kg & ₹3,000/qtl fair procurement against subjective grading cuts.",
+                      "व्यक्तिपरक ग्रेडिंग कटौती के खिलाफ ₹24/किग्रा और ₹3,000/क्विंटल की मांग को लेकर किसानों ने प्याज फेंका।",
+                      "मनमानी प्रतवारी कपातीविरोधात ₹२४/किलो व ₹३,०००/क्विंटल हमीभावाच्या मागणीसाठी शेतकऱ्यांचे कांदा आंदोलन.",
+                      "મનસ્વી ગ્રેડિંગ કપાત સામે ₹૨૪/કિલો અને ₹૩,૦૦૦/ક્વિન્ટલ વાજબી ખરીદની માંગ સાથે ખેડૂતોનું આંદોલન."
+                    )}
+                  </p>
+                </div>
+              </div>
+
+              {/* Photo citation pill */}
+              <div className="mt-2 flex items-center justify-between text-[10px] font-mono text-[#C4A494]">
+                <span>{tr("Source: APMC Nashik Ground Incident (Slide 2)", "स्रोत: एपीएमसी नासिक जमीनी घटना (स्लाइड 2)", "स्रोत: बाजार समिती नाशिक प्रत्यक्ष घटना (स्लाईड २)", "સ્રોત: APMC નાસિક ઘટના (સ્લાઇડ ૨)")}</span>
+                <span className="text-[#EB87A9]">26 May 2026</span>
+              </div>
+            </div>
+
+            {/* Right: Analytical Narrative & Solution Bridge */}
+            <div className="lg:col-span-7 space-y-4 text-left">
+              <div>
+                <h3 className="font-sans font-black text-xl sm:text-2xl text-[#F8D5C2] tracking-tight leading-snug">
+                  {tr(
+                    "Why Mandi Disputes Escalate: The Missing Optical Standard",
+                    "मंडी विवाद क्यों बढ़ते हैं: ऑप्टिकल मानक का अभाव",
+                    "बाजार समित्यांमधील वाद का वाढतात: अचूक ऑप्टिकल मानकाचा अभाव",
+                    "માર્કેટ યાર્ડ વિવાદો શા માટે વધે છે: ઓપ્ટિકલ સ્ટાન્ડર્ડનો અભાવ"
+                  )}
+                </h3>
+                <p className="text-xs sm:text-sm text-[#C4A494] mt-2 leading-relaxed">
+                  {tr(
+                    "Onion pricing at mandis is notoriously volatile and dictated by manual, subjective grading. There is no formal statutory MSP for onion — only retroactive PM-AASHA market support after price collapses. During peak arrivals, traders and center officers eyeball entire truckloads, claiming subjective defects to slash bids down to ₹8–₹12/kg, forcing distress sales.",
+                    "मंडियों में प्याज की कीमतें अत्यधिक अस्थिर हैं और मैनुअल, व्यक्तिपरक ग्रेडिंग द्वारा तय की जाती हैं। प्याज के लिए कोई औपचारिक वैधानिक एमएसपी नहीं है - केवल मूल्य गिरावट के बाद पीएम-आशा समर्थन। अत्यधिक आवक के दौरान, व्यापारी और अधिकारी ट्रकों की व्यक्तिपरक जांच करके बोलियों को ₹8-₹12/किग्रा तक घटा देते हैं।",
+                    "बाजार समित्यांमध्ये कांद्याचे भाव अत्यंत अस्थिर असून ते मॅन्युअल, डोळ्याने केलेल्या व्यक्तिनिष्ठ प्रतवारीवर ठरतात. कांद्यासाठी कोणताही वैधानिक हमीभाव नाही - फक्त दर कोसळल्यानंतर पीएम-आशा आधार. आवक वाढल्यास व्यापारी मनमानीपणे प्रतवारी घसरवून भाव ₹८ ते ₹१२/किलोवर आणतात, ज्यामुळे शेतकऱ्यांना तोटा सहन करावा लागतो.",
+                    "માર્કેટ યાર્ડમાં ડુંગળીના ભાવ અત્યંત અસ્થિર છે અને મેન્યુઅલ ગ્રેડિંગ દ્વારા નક્કી થાય છે. ડુંગળી માટે કોઈ કાનૂની ટેકાના ભાવ નથી - ભાવ તૂટ્યા પછી જ પીએમ-આશા સહાય. ભારે આવક દરમિયાન, વેપારીઓ મનસ્વી રીતે ગ્રેડિંગ ઘટાડીને બોલી ₹૮-₹૧૨/કિલો સુધી પાડી દે છે."
+                  )}
+                </p>
+              </div>
+
+              {/* The 3 Core Breakthrough Pillars */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
+                <div className="p-3 rounded-xl bg-[#120710] border border-white/[0.08]">
+                  <div className="text-[10px] font-mono text-[#F18B49] uppercase font-bold">120ms Edge CV</div>
+                  <div className="text-xs font-bold text-[#F8D5C2] mt-0.5">{tr("Instant Calibration", "तत्काल कैलिब्रेशन", "त्वरित कॅलिब्रेशन", "ત્વરિત કેલિબ્રેશન")}</div>
+                  <p className="text-[10px] text-[#C4A494] mt-1 leading-snug">
+                    {tr("Measures bulb caliper on-device without internet.", "बिना इंटरनेट ऑन-डिवाइस कैलिपर मापता है।", "इंटरनेटशिवाय जागेवरच कांद्याचा व्यास मोजतो.", "ઇન્ટરનેટ વિના ઉપકરણ પર જ ડુંગળીનો વ્યાસ માપે છે.")}
+                  </p>
+                </div>
+
+                <div className="p-3 rounded-xl bg-[#120710] border border-white/[0.08]">
+                  <div className="text-[10px] font-mono text-[#EB87A9] uppercase font-bold">Cloud Vision AI</div>
+                  <div className="text-xs font-bold text-[#F8D5C2] mt-0.5">{tr("Pathology Audit", "रोग-परीक्षण ऑडिट", "रोगनिदान ऑडिट", "રોગ ઓડિટ")}</div>
+                  <p className="text-[10px] text-[#C4A494] mt-1 leading-snug">
+                    {tr("Evaluates black mold, rot & sprout cues objectively.", "काले मोल्ड, सड़न व अंकुरण की निष्पक्ष जांच।", "काळी बुरशी, सड आणि कोंब यांची अचूक तपासणी.", "કાળી ફૂગ, સડો અને અંકુરણની નિષ્પક્ષ તપાસ.")}
+                  </p>
+                </div>
+
+                <div className="p-3 rounded-xl bg-[#120710] border border-white/[0.08]">
+                  <div className="text-[10px] font-mono text-[#138808] uppercase font-bold">e-NAM QR Slip</div>
+                  <div className="text-xs font-bold text-[#F8D5C2] mt-0.5">{tr("Dispute Shield", "विवाद सुरक्षा", "तक्रार निवारण पुरावा", "વિવાદ સુરક્ષા")}</div>
+                  <p className="text-[10px] text-[#C4A494] mt-1 leading-snug">
+                    {tr("Immutable record both sides must honor.", "अपरिवर्तनीय रिकॉर्ड जो दोनों पक्षों को मान्य है।", "दोन्ही बाजूंना मान्य असणारा अधिकृत पुरावा.", "બંને પક્ષો માટે માન્ય અપરિવર્તનીય રેકોર્ડ.")}
+                  </p>
+                </div>
+              </div>
+
+              {/* Hugging Face Mobiusi Dataset Highlight */}
+              <div className="p-3.5 rounded-2xl bg-[#160814] border border-[#EB87A9]/30 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-[#EB87A9]/15 border border-[#EB87A9]/40 flex items-center justify-center text-lg flex-shrink-0">
+                    🤗
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-1.5">
+                      <span className="text-xs font-mono font-bold text-[#F8D5C2]">
+                        Mobiusi Onion Dataset (Hugging Face)
+                      </span>
+                      <span className="px-1.5 py-0.2 rounded bg-white/10 text-[9px] font-mono text-[#EB87A9]">
+                        Open Benchmark
+                      </span>
+                    </div>
+                    <p className="text-[11px] text-[#C4A494] font-mono leading-tight mt-0.5">
+                      {tr(
+                        "Trained & benchmarked on the Mobiusi Onion Classification & Segmentation Dataset for multi-variety defect recognition.",
+                        "बहु-किस्म दोष पहचान के लिए Mobiusi प्याज वर्गीकरण और विभाजन डेटासेट पर प्रशिक्षित और बेंचमार्क किया गया।",
+                        "विविध वाणांच्या दोष तपासणीसाठी Mobiusi कांदा वर्गीकरण व विभाजन डेटासेटवर प्रशिक्षित.",
+                        "વિવિધ જાતોના ખામી નિદાન માટે Mobiusi ડુંગળી વર્ગીકરણ અને સેગ્મેન્ટેશન ડેટાસેટ પર પ્રશિક્ષિત."
+                      )}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-2 flex-shrink-0">
+                  <a
+                    href="https://huggingface.co/datasets/Mobiusi/Onion-Classification-and-Segmentation-Dataset"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-3 py-1.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-xs font-mono font-bold text-[#F8D5C2] flex items-center gap-1.5 transition-colors"
+                  >
+                    <span>View Dataset</span>
+                    <ExternalLink size={12} className="text-[#EB87A9]" />
+                  </a>
+
+                  <button
+                    type="button"
+                    onClick={openScanner}
+                    className="px-3.5 py-1.5 rounded-xl btn-3d-lime text-xs font-mono font-bold flex items-center gap-1.5 shadow-md cursor-pointer hover:scale-[1.02] active:scale-95 transition-all text-black"
+                  >
+                    <Scan size={13} className="text-black" />
+                    <span>{tr("Grade APMC Lot", "लॉट ग्रेड करें", "लॉट प्रतवारी करा", "લોટ ગ્રેડ કરો")}</span>
+                  </button>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </section>
 
       {/* Flagship Section: Pre-Tested AI Results Showcase */}
       <section id="tested-results" className="max-w-6xl mx-auto px-4 sm:px-6 py-12 border-t border-white/[0.06]">
@@ -1356,6 +1526,212 @@ export default function PublicLanding({ onOpenLoginWithRole }) {
         </div>
       </section>
 
+      {/* Sovereign Tech Stack & Ecosystem Integrations Section */}
+      <section id="tech-stack" className="max-w-6xl mx-auto px-4 sm:px-6 py-16 border-t border-white/[0.06] scroll-mt-20">
+        <div className="text-center max-w-2xl mx-auto mb-10">
+          <span className="capsule-tag-dark mb-2">
+            {tr("SOVEREIGN ARCHITECTURE & INTEGRATIONS", "संप्रभु वास्तुकला एवं एकीकरण", "सार्वभौम आर्किटेक्चर आणि एकात्मता", "સાર્વભૌમ આર્કિટેક્ચર અને એકીકરણ")}
+          </span>
+          <h2 className="font-sans font-black text-2xl sm:text-4xl text-[#F8D5C2] tracking-tight">
+            {tr("Interoperable Mandi Infrastructure Stack", "इंटरऑपरेबल मंडी अवसंरचना स्टैक", "इंटरऑपरेबल बाजार समिती पायाभूत सुविधा", "ઇન્ટરઓપરેબલ માર્કેટ યાર્ડ ઇન્ફ્રાસ્ટ્રક્ચર સ્ટેક")}
+          </h2>
+          <p className="text-xs sm:text-sm text-[#C4A494] mt-2">
+            {tr(
+              "Built as a lightweight Digital Public Infrastructure (DPI) plug-in layer connecting seamlessly with national Indian agriculture services.",
+              "राष्ट्रीय भारतीय कृषि सेवाओं के साथ निर्बाध रूप से जुड़ने वाले हल्के डिजिटल सार्वजनिक बुनियादी ढांचे (DPI) प्लग-इन के रूप में निर्मित।",
+              "राष्ट्रीय कृषी सेवांशी सहज जोडल्या जाणाऱ्या डिजिटल पब्लिक इन्फ्रास्ट्रक्चर (DPI) प्लग-इन लेयर म्हणून विकसित.",
+              "રાષ્ટ્રીય કૃષિ સેવાઓ સાથે સરળતાથી જોડાતા ડિજિટલ પબ્લિક ઇન્ફ્રાસ્ટ્રક્ચર (DPI) પ્લગ-ઇન લેયર તરીકે વિકસિત."
+            )}
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          
+          {/* Card 1: Digital India BHASHINI Division */}
+          <div className="card-3d p-5 flex flex-col justify-between space-y-4 hover:border-[#F18B49]/50 transition-all">
+            <div>
+              <div className="flex items-center justify-between mb-3">
+                <div className="w-10 h-10 rounded-2xl bg-[#FF9933]/15 border border-[#FF9933]/40 flex items-center justify-center font-bold text-[#FF9933]">
+                  भा
+                </div>
+                <span className="px-2 py-0.5 rounded-full bg-[#FF9933]/15 text-[#FF9933] border border-[#FF9933]/30 font-mono text-[9px] font-bold">
+                  BHASHINI API
+                </span>
+              </div>
+              <h3 className="font-bold text-base text-[#F8D5C2]">
+                {tr("Digital India BHASHINI Division", "डिजिटल इंडिया भाषिणी प्रभाग", "डिजिटल इंडिया भाषिणी विभाग", "ડિજિટલ ઇન્ડિયા ભાષિણી ડિવિઝન")}
+              </h3>
+              <p className="text-xs text-[#C4A494] mt-2 leading-relaxed">
+                {tr(
+                  "National Language Translation Mission (NLTM) integration powering real-time regional speech recognition and vernacular translations across Hindi, Marathi, Gujarati, and English for inclusive grassroots mandi access.",
+                  "राष्ट्रीय भाषा अनुवाद मिशन (NLTM) एकीकरण जो जमीनी स्तर पर मंडी पहुंच के लिए हिन्दी, मराठी, गुजराती और अंग्रेजी में वास्तविक समय क्षेत्रीय भाषण पहचान और अनुवाद प्रदान करता है।",
+                  "राष्ट्रीय भाषा भाषांतर मिशन (NLTM) एकात्मता, ज्यामुळे हिंदी, मराठी, गुजराती आणि इंग्रजीमध्ये रिअल-टाइम व्हॉइस व स्थानिक भाषांतर उपलब्ध होते.",
+                  "રાષ્ટ્રીય ભાષા અનુવાદ મિશન (NLTM) એકીકરણ, જે હિન્દી, મરાઠી, ગુજરાતી અને અંગ્રેજીમાં રીઅલ-ટાઇમ અવાજ ઓળખ અને પ્રાદેશિક અનુવાદ પ્રદાન કરે છે."
+                )}
+              </p>
+            </div>
+            <div className="pt-3 border-t border-white/[0.06] text-[10px] font-mono text-[#FF9933] flex items-center justify-between">
+              <span>MeitY • NLTM Division</span>
+              <span className="px-1.5 py-0.5 rounded bg-white/5 text-[#F8D5C2]">Voice + Vernacular</span>
+            </div>
+          </div>
+
+          {/* Card 2: MSG91 SMS Gateway */}
+          <div className="card-3d p-5 flex flex-col justify-between space-y-4 hover:border-[#EB87A9]/50 transition-all">
+            <div>
+              <div className="flex items-center justify-between mb-3">
+                <div className="w-10 h-10 rounded-2xl bg-[#EB87A9]/15 border border-[#EB87A9]/40 flex items-center justify-center font-bold text-[#EB87A9]">
+                  <MessageSquare size={18} />
+                </div>
+                <span className="px-2 py-0.5 rounded-full bg-[#EB87A9]/15 text-[#EB87A9] border border-[#EB87A9]/30 font-mono text-[9px] font-bold">
+                  MSG91 TELECOM
+                </span>
+              </div>
+              <h3 className="font-bold text-base text-[#F8D5C2]">
+                {tr("MSG91 Secure SMS & OTP Gateway", "MSG91 सुरक्षित एसएमएस और ओटीपी गेटवे", "MSG91 सुरक्षित एसएमएस आणि ओटीपी गेटवे", "MSG91 સુરક્ષિત એસએમએસ અને ઓટીપી ગેટવે")}
+              </h3>
+              <p className="text-xs text-[#C4A494] mt-2 leading-relaxed">
+                {tr(
+                  "High-throughput TRAI DLT-compliant SMS infrastructure delivering instant optical grading receipts, digital weighbridge slips, and price signals to farmers on basic feature phones without smartphone apps.",
+                  "उच्च-थ्रूपुट ट्राई डीएलटी-अनुरूप एसएमएस बुनियादी ढांचा जो फीचर फोन वाले किसानों को स्मार्टफोन ऐप के बिना तत्काल ग्रेडिंग रसीदें और मूल्य संकेत देता है।",
+                  "ट्राय (TRAI) डीएलटी-अनुरूप एसएमएस प्रणाली, जी साध्या फीचर फोनवरील शेतकऱ्यांना स्मार्टफोन अ‍ॅपशिवाय त्वरित प्रतवारी पावती आणि दर संदेश पाठवते.",
+                  "ટ્રાઈ DLT-સુસંગત એસએમએસ ઈન્ફ્રાસ્ટ્રક્ચર, જે સાદા ફીચર ફોન પર ખેડૂતોને સ્માર્ટફોન એપ વિના ત્વરિત ગ્રેડિંગ પાવતી અને ભાવ સંકેતો મોકલે છે."
+                )}
+              </p>
+            </div>
+            <div className="pt-3 border-t border-white/[0.06] text-[10px] font-mono text-[#EB87A9] flex items-center justify-between">
+              <span>TRAI DLT Registered</span>
+              <span className="px-1.5 py-0.5 rounded bg-white/5 text-[#F8D5C2]">Feature Phone First</span>
+            </div>
+          </div>
+
+          {/* Card 3: Aadhaar e-KYC (UIDAI) */}
+          <div className="card-3d p-5 flex flex-col justify-between space-y-4 hover:border-[#F18B49]/50 transition-all">
+            <div>
+              <div className="flex items-center justify-between mb-3">
+                <div className="w-10 h-10 rounded-2xl bg-[#F18B49]/15 border border-[#F18B49]/40 flex items-center justify-center font-bold text-[#F18B49]">
+                  <ShieldCheck size={18} />
+                </div>
+                <span className="px-2 py-0.5 rounded-full bg-[#F18B49]/15 text-[#F18B49] border border-[#F18B49]/30 font-mono text-[9px] font-bold">
+                  UIDAI AADHAAR
+                </span>
+              </div>
+              <h3 className="font-bold text-base text-[#F8D5C2]">
+                {tr("Aadhaar e-KYC & DBT Escrow", "आधार ई-केवाईसी और डीबीटी एस्क्रो", "आधार ई-केवायसी आणि डीबीटी एस्क्रो", "આધાર ઈ-કેવાયસી અને ડીબીટી એસ્ક્રો")}
+              </h3>
+              <p className="text-xs text-[#C4A494] mt-2 leading-relaxed">
+                {tr(
+                  "Cryptographic verification confirming farmer landholding records and PM-KISAN beneficiary IDs. Prevents middleman proxy entries and establishes direct escrow payout pipelines for fair APMC transactions.",
+                  "किसान भूमि रिकॉर्ड और पीएम-किसान लाभार्थी आईडी की पुष्टि करने वाला क्रिप्टोग्राफिक सत्यापन। बिचौलियों के छद्म प्रवेश को रोकता है और पारदर्शी भुगतान सुनिश्चित करता है।",
+                  "शेतकऱ्यांचे सातबारा व पीएम-किसान लाभार्थी आयडी पडताळणी. मध्यस्थांची खोटी नोंदणी रोखते आणि पारदर्शक थेट बँक खात्यात पैसे जमा करते.",
+                  "ખેડૂતના જમીન રેકોર્ડ અને પીએમ-કિસાન લાભાર્થી આઈડીની ચકાસણી. વચેટિયાઓની ખોટી એન્ટ્રી અટકાવે છે અને પારદર્શક ચુકવણી સુનિશ્ચિત કરે છે."
+                )}
+              </p>
+            </div>
+            <div className="pt-3 border-t border-white/[0.06] text-[10px] font-mono text-[#F18B49] flex items-center justify-between">
+              <span>UIDAI Statutory Verification</span>
+              <span className="px-1.5 py-0.5 rounded bg-white/5 text-[#F8D5C2]">DBT Escrow Ready</span>
+            </div>
+          </div>
+
+          {/* Card 4: Mobiusi Dataset (Hugging Face) */}
+          <div className="card-3d p-5 flex flex-col justify-between space-y-4 hover:border-[#EB87A9]/50 transition-all">
+            <div>
+              <div className="flex items-center justify-between mb-3">
+                <div className="w-10 h-10 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center text-lg">
+                  🤗
+                </div>
+                <span className="px-2 py-0.5 rounded-full bg-[#EB87A9]/15 text-[#EB87A9] border border-[#EB87A9]/30 font-mono text-[9px] font-bold">
+                  HUGGING FACE
+                </span>
+              </div>
+              <h3 className="font-bold text-base text-[#F8D5C2]">
+                {tr("Mobiusi Onion Dataset Hub", "Mobiusi प्याज डेटासेट हब", "Mobiusi कांदा डेटासेट हब", "Mobiusi ડુંગળી ડેટાસેટ હબ")}
+              </h3>
+              <p className="text-xs text-[#C4A494] mt-2 leading-relaxed">
+                {tr(
+                  "Leveraging the Mobiusi open-access agricultural dataset containing high-resolution onion imagery, polygon mask annotations, and defect classification for rigorous computer vision training.",
+                  "कठोर कंप्यूटर विज़न प्रशिक्षण के लिए उच्च-रिज़ॉल्यूशन प्याज छवियों और पॉलीगॉन मास्क एनोटेशन वाले मोबियस ओपन-एक्सेस डेटासेट का उपयोग।",
+                  "अचूक कॉम्प्युटर व्हिजन प्रशिक्षणासाठी मोबियस ओपन-अ‍ॅक्सेस कृषी डेटासेटमधील उच्च-रिझोल्यूशन कांदा प्रतिमा आणि मास्क एनोटेशन्सचा वापर.",
+                  "સચોટ કોમ્પ્યુટર વિઝન તાલીમ માટે મોબિયસ ઓપન-એક્સેસ કૃષિ ડેટાસેટમાંથી હાઈ-રિઝોલ્યુશન ઈમેજો અને માસ્ક એનોટેશન્સનો ઉપયોગ."
+                )}
+              </p>
+            </div>
+            <div className="pt-3 border-t border-white/[0.06] flex items-center justify-between">
+              <a
+                href="https://huggingface.co/datasets/Mobiusi/Onion-Classification-and-Segmentation-Dataset"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[10px] font-mono text-[#EB87A9] hover:underline flex items-center gap-1 font-bold"
+              >
+                <span>Hugging Face Hub</span>
+                <ExternalLink size={10} />
+              </a>
+              <span className="px-1.5 py-0.5 rounded bg-white/5 text-[10px] font-mono text-[#F8D5C2]">Segmentation Masks</span>
+            </div>
+          </div>
+
+          {/* Card 5: Google Gemini Multimodal AI */}
+          <div className="card-3d p-5 flex flex-col justify-between space-y-4 hover:border-[#F18B49]/50 transition-all">
+            <div>
+              <div className="flex items-center justify-between mb-3">
+                <div className="w-10 h-10 rounded-2xl bg-[#F18B49]/15 border border-[#F18B49]/40 flex items-center justify-center font-bold text-[#F18B49]">
+                  <Sparkles size={18} />
+                </div>
+                <span className="px-2 py-0.5 rounded-full bg-[#F18B49]/15 text-[#F18B49] border border-[#F18B49]/30 font-mono text-[9px] font-bold">
+                  GEMINI VISION
+                </span>
+              </div>
+              <h3 className="font-bold text-base text-[#F8D5C2]">
+                {tr("Google Gemini Multimodal AI", "गूगल जेमिनी मल्टीमॉडल एआई", "गुगल जेमिनी मल्टीमॉडल एआय", "ગુગલ જેમિની મલ્ટીમોડલ AI")}
+              </h3>
+              <p className="text-xs text-[#C4A494] mt-2 leading-relaxed">
+                {tr(
+                  "High-resolution pathology inspection detecting Aspergillus niger fungal mycelia, bacterial soft rot breakdown, and early internal sprouting cues invisible to basic color thresholding.",
+                  "एस्परगिलस नाइजर फंगल मायसेलियम, बैक्टीरियल सॉफ्ट रोट और प्रारंभिक आंतरिक अंकुरण की पहचान करने वाला उच्च-रिज़ॉल्यूशन पैथोलॉजी निरीक्षण।",
+                  "काळ्या बुरशीचे बीजाणू, मऊ सड आणि अंतर्गत कोंब अचूक शोधणारी उच्च-रिझोल्यूशन पॅथॉलॉजी तपासणी.",
+                  "કાળી ફૂગ, બેક્ટેરિયલ સોફ્ટ રોટ અને આંતરિક અંકુરણની ચોક્કસ તપાસ કરતી ઉચ્ચ-રિઝોલ્યુશન પેથોલોજી ચકાસણી."
+                )}
+              </p>
+            </div>
+            <div className="pt-3 border-t border-white/[0.06] text-[10px] font-mono text-[#F18B49] flex items-center justify-between">
+              <span>Gemini 2.5 Flash Engine</span>
+              <span className="px-1.5 py-0.5 rounded bg-white/5 text-[#F8D5C2]">Pathology Audit</span>
+            </div>
+          </div>
+
+          {/* Card 6: Dual Storage & AWS S3 */}
+          <div className="card-3d p-5 flex flex-col justify-between space-y-4 hover:border-white/30 transition-all">
+            <div>
+              <div className="flex items-center justify-between mb-3">
+                <div className="w-10 h-10 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center font-bold text-[#F8D5C2]">
+                  <Database size={18} />
+                </div>
+                <span className="px-2 py-0.5 rounded-full bg-white/10 text-[#F8D5C2] border border-white/20 font-mono text-[9px] font-bold">
+                  POSTGRESQL + S3
+                </span>
+              </div>
+              <h3 className="font-bold text-base text-[#F8D5C2]">
+                {tr("Dual Database & Tamper-Proof Storage", "दोहरा डेटाबेस और छेड़छाड़-रोधी भंडारण", "दुहेरी डेटाबेस आणि सुरक्षित साठवणूक", "ડ્યુઅલ ડેટાબેઝ અને સુરક્ષિત સંગ્રહ")}
+              </h3>
+              <p className="text-xs text-[#C4A494] mt-2 leading-relaxed">
+                {tr(
+                  "PostgreSQL for ACID transactional mandi intake and weighbridge receipts, MongoDB for immutable grievance audit logs, and AWS S3 / Cloudflare R2 with SHA-256 content hashes for tamper-proof evidence.",
+                  "लेन-देन मंडी आवक और वजनपुल रसीदों के लिए पोस्टग्रेएसक्यूएल, अपरिवर्तनीय शिकायत लॉग के लिए मोंगोडीबी, और छेड़छाड़-रोधी सबूतों के लिए एस3।",
+                  "बाजार समिती आवक नोंदींसाठी पोस्टग्रेसक्यूएल, तक्रार नोंदींसाठी मोंगोडीबी, आणि सुरक्षित पुराव्यांसाठी एस३ क्लाउड साठवणूक.",
+                  "માર્કેટ યાર્ડ વ્યવહારો માટે પોસ્ટગ્રેસક્યુએલ, ફરિયાદ લોગ માટે મોંગોડીબી, અને સુરક્ષિત પુરાવા માટે એસ૩ ક્લાઉડ સંગ્રહ."
+                )}
+              </p>
+            </div>
+            <div className="pt-3 border-t border-white/[0.06] text-[10px] font-mono text-[#C4A494] flex items-center justify-between">
+              <span>ACID + SHA-256 Hashing</span>
+              <span className="px-1.5 py-0.5 rounded bg-white/5 text-[#F8D5C2]">Audit Compliant</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
       {/* Data Abstraction & Privacy Model Section */}
       <section id="privacy" className="max-w-6xl mx-auto px-4 sm:px-6 py-16 border-t border-white/[0.06] scroll-mt-20">
         <div id="privacy-model" className="relative -top-24 pointer-events-none" />
@@ -1441,6 +1817,9 @@ export default function PublicLanding({ onOpenLoginWithRole }) {
 
         </div>
       </section>
+
+      {/* Official Smart India Hackathon (SIH 2026) Submission Batch Banner */}
+      <SihFooterBanner />
 
       {/* Minimal Billion-Dollar Footer */}
       <footer className="max-w-6xl mx-auto px-4 sm:px-6 py-12 border-t border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#C4A494]">

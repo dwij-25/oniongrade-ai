@@ -94,18 +94,24 @@ export default function Header() {
 
       if (location.pathname === "/") {
         const privacyElem = document.getElementById("privacy");
+        const techStackElem = document.getElementById("tech-stack");
         const benchmarkElem = document.getElementById("model-benchmark");
         const testedElem = document.getElementById("tested-results");
         const standardsElem = document.getElementById("standards");
+        const caseStudyElem = document.getElementById("case-study");
 
         if (privacyElem && scrollPos >= privacyElem.offsetTop) {
           setActiveNav("privacy");
+        } else if (techStackElem && scrollPos >= techStackElem.offsetTop) {
+          setActiveNav("tech-stack");
         } else if (benchmarkElem && scrollPos >= benchmarkElem.offsetTop) {
           setActiveNav("batches");
         } else if (testedElem && scrollPos >= testedElem.offsetTop) {
           setActiveNav("batches");
         } else if (standardsElem && scrollPos >= standardsElem.offsetTop) {
           setActiveNav("standards");
+        } else if (caseStudyElem && scrollPos >= caseStudyElem.offsetTop) {
+          setActiveNav("case-study");
         } else {
           setActiveNav("home");
         }
@@ -279,8 +285,10 @@ export default function Header() {
     // Default: Home Page Navigation
     return [
       { id: "home", label: tr("Home", "होम", "मुख्य पृष्ठ", "હોમ") },
+      { id: "case-study", label: tr("Case Study", "केस स्टडी", "केस स्टडी", "કેસ સ્ટડી") },
       { id: "standards", label: tr("Standards", "मानक", "मानके", "ધોરણો"), dot: true },
       { id: "batches", label: tr("Batches", "परीक्षण बैच", "तपासणी बॅचेस", "ચકાસાયેલ બેચ") },
+      { id: "tech-stack", label: tr("Tech Stack", "तकनीकी स्टैक", "तांत्रिक स्टॅक", "ટેક સ્ટેક") },
       { id: "privacy", label: tr("Privacy", "गोपनीयता", "गोपनीयता", "ગોપનીયતા") },
     ];
   };
