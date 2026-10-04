@@ -6,6 +6,7 @@
 [![Tailwind CSS v4](https://img.shields.io/badge/Tailwind-v4.3-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 [![Google Gemini Vision](https://img.shields.io/badge/AI_Engine-Gemini_Multimodal_Vision-4285F4?style=for-the-badge&logo=google&logoColor=white)](https://ai.google.dev/)
 [![Standards](https://img.shields.io/badge/Standards-ICAR--DOGR_%7C_AGMARK-F18B49?style=for-the-badge&logo=shield&logoColor=white)](https://dogr.icar.gov.in)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-oniongrade--ai.vercel.app-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://oniongrade-ai.vercel.app)
 [![Compliance](https://img.shields.io/badge/Compliance-DPDP_Act_2023-purple?style=for-the-badge&logo=lock&logoColor=white)](https://www.meity.gov.in)
 
 > **Autonomous, dual-engine computer vision platform that eliminates subjective visual grading of onions at APMC Mandis, provides cryptographically verifiable QR digital passports, predicts buffer-stock shelf-life, and bridges the digital divide via multilingual WhatsApp Sahayak.**
