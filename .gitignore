@@ -1,0 +1,73 @@
+# ==============================================================================
+# OnionGrade AI — Git Ignore Configuration
+# Smart India Hackathon (SIH) 2026
+# ==============================================================================
+
+# Environment & Secrets (NEVER COMMIT API KEYS)
+.env
+.env.local
+.env.*.local
+*.local
+
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build Outputs
+dist/
+dist-ssr/
+build/
+*.tsbuildinfo
+
+# Large Media & Archives
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
+
+# Temporary Workspaces & Scratch Files
+temp_*
+temp/
+tmp/
+scratch/
+modify_trans.cjs
+update.cjs
+update_landing.cjs
+
+# Cloud & Hosting Metadata
+.vercel/
+.netlify/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Python Cache (from slide/poster build scripts)
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Editor & OS Artifacts
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.DS_Store
+Thumbs.db
+ehthumbs.db
