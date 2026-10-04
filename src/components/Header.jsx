@@ -83,7 +83,7 @@ export default function Header() {
     // Initial activeNav on route change
     const initialHash = window.location.hash.replace("#", "");
     if (location.pathname === "/") {
-      setActiveNav(initialHash === "standards" || initialHash === "privacy" ? initialHash : initialHash === "model-benchmark" ? "batches" : "home");
+      setActiveNav(initialHash === "privacy" || initialHash === "tech-stack" || initialHash === "case-study" ? initialHash : initialHash === "model-benchmark" ? "batches" : "home");
     } else {
       setActiveNav(initialHash || "overview");
     }
@@ -97,7 +97,6 @@ export default function Header() {
         const techStackElem = document.getElementById("tech-stack");
         const benchmarkElem = document.getElementById("model-benchmark");
         const testedElem = document.getElementById("tested-results");
-        const standardsElem = document.getElementById("standards");
         const caseStudyElem = document.getElementById("case-study");
 
         if (privacyElem && scrollPos >= privacyElem.offsetTop) {
@@ -108,8 +107,6 @@ export default function Header() {
           setActiveNav("batches");
         } else if (testedElem && scrollPos >= testedElem.offsetTop) {
           setActiveNav("batches");
-        } else if (standardsElem && scrollPos >= standardsElem.offsetTop) {
-          setActiveNav("standards");
         } else if (caseStudyElem && scrollPos >= caseStudyElem.offsetTop) {
           setActiveNav("case-study");
         } else {
@@ -286,7 +283,6 @@ export default function Header() {
     return [
       { id: "home", label: tr("Home", "होम", "मुख्य पृष्ठ", "હોમ") },
       { id: "case-study", label: tr("Case Study", "केस स्टडी", "केस स्टडी", "કેસ સ્ટડી") },
-      { id: "standards", label: tr("Standards", "मानक", "मानके", "ધોરણો"), dot: true },
       { id: "batches", label: tr("Batches", "परीक्षण बैच", "तपासणी बॅचेस", "ચકાસાયેલ બેચ") },
       { id: "tech-stack", label: tr("Tech Stack", "तकनीकी स्टैक", "तांत्रिक स्टॅक", "ટેક સ્ટેક") },
       { id: "privacy", label: tr("Privacy", "गोपनीयता", "गोपनीयता", "ગોપનીયતા") },
