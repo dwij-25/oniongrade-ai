@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "Autonomous Optical Quality Grading for Mandi Transparency & Price Discovery — Smart India Hackathon (SIH) 2026",
   "type": "module",
-  "author": "Dwij Pancholi",
+  "author": "Dwij Pancholi <dwijpancholi@gmail.com>",
   "license": "MIT",
   "keywords": [
     "smart-india-hackathon",
@@ -21,7 +21,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/dwij-15/oniongrade-ai.git"
+    "url": "https://github.com/dwij-25/oniongrade-ai.git"
   },
   "scripts": {
     "dev": "vite",

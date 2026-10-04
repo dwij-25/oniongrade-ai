@@ -198,7 +198,7 @@ Code Hygiene:       Oxlint, Vite 8 Fast HMR, Strict Git Ignore Config
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/dwij-15/oniongrade-ai.git
+git clone https://github.com/dwij-25/oniongrade-ai.git
 cd oniongrade-ai
 ```
 
@@ -289,7 +289,7 @@ oniongrade-ai/
 
 ## 👥 Authors & Acknowledgments
 
-* **Dwij Pancholi** ([@dwij-15](https://github.com/dwij-15)) — *Lead Architecture & Full-Stack / AI Vision Engineering*
+* **Dwij Pancholi** ([@dwij-25](https://github.com/dwij-25) | [dwijpancholi@gmail.com](mailto:dwijpancholi@gmail.com)) — *Lead Architecture & Full-Stack / AI Vision Engineering*
 * Built for **Smart India Hackathon (SIH) 2026** under the **Agriculture, FoodTech & Rural Development** theme.
 
 ### Key References & Standards
