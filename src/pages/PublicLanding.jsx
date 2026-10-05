@@ -226,9 +226,9 @@ export default function PublicLanding({ onOpenLoginWithRole }) {
               <div className="bg-[#FFF5ED] text-[#000000] p-4 rounded-3xl shadow-xl flex items-center justify-between gap-3 border border-[#F8D5C2]">
                 <div className="flex flex-col gap-1.5">
                   <div className="text-[10px] font-mono font-black uppercase tracking-wider text-[#5F1C47]">
-                    {tr("12,480+ APMC LOTS CERTIFIED", "12,480+ एपीएमसी लॉट प्रमाणित", "12,480+ बाजार समिती लॉट्स प्रमाणित", "12,480+ APMC લોટ્સ પ્રમાણિત")}
+                    {tr("4 ROLE-BASED WORKSPACES", "4 भूमिका-आधारित कार्यक्षेत्र", "4 भूमिका-आधारित कार्यक्षेत्र", "4 ભૂમિકા-આધારિત કાર્યક્ષેત્ર")}
                   </div>
-                  {/* Stacked Overlapping Avatars */}
+                  {/* Stacked Overlapping Avatars — Farmer, Trader, Officer, Gov */}
                   <div className="flex items-center -space-x-2">
                     <img
                       src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=faces"
@@ -247,12 +247,9 @@ export default function PublicLanding({ onOpenLoginWithRole }) {
                     />
                     <img
                       src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop&crop=faces"
-                      alt="Buyer Meena"
+                      alt="DoCA Official"
                       className="w-8 h-8 rounded-full border-2 border-[#FFF5ED] object-cover shadow-sm"
                     />
-                    <div className="w-8 h-8 rounded-full bg-[#180815] text-[#F18B49] text-[10px] font-mono font-black flex items-center justify-center border-2 border-[#FFF5ED] shadow-sm">
-                      +12k
-                    </div>
                   </div>
                 </div>
 
