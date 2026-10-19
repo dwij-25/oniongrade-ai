@@ -7,61 +7,61 @@ export const APMC_RATES = {
     state: "Maharashtra",
     district: "Nashik",
     updatedToday: "Today, 08:30 AM",
-    gradeA: { min: 2750, modal: 2920, max: 3150 },
-    urs: { min: 1800, modal: 1980, max: 2150 },
-    reject: { min: 650, modal: 780, max: 920 },
-    unassortedAverage: 2150,
+    gradeA: { min: 3800, modal: 4200, max: 4600 },
+    urs: { min: 2400, modal: 2800, max: 3200 },
+    reject: { min: 1000, modal: 1400, max: 1800 },
+    unassortedAverage: 3200,
     dailyArrivalTonnes: 1840,
-    trend: "+₹140/qtl (Firm)"
+    trend: "+₹320/qtl (Bullish — Oct Kharif Arrivals)"
   },
   "MH-PIM": {
     mandiName: "Pimpalgaon APMC",
     state: "Maharashtra",
     district: "Nashik",
     updatedToday: "Today, 09:15 AM",
-    gradeA: { min: 2680, modal: 2850, max: 3080 },
-    urs: { min: 1750, modal: 1920, max: 2100 },
-    reject: { min: 600, modal: 720, max: 880 },
-    unassortedAverage: 2080,
+    gradeA: { min: 3600, modal: 4050, max: 4500 },
+    urs: { min: 2200, modal: 2650, max: 3050 },
+    reject: { min: 900, modal: 1300, max: 1600 },
+    unassortedAverage: 3100,
     dailyArrivalTonnes: 1420,
-    trend: "+₹80/qtl (Steady)"
+    trend: "+₹280/qtl (Firm)"
   },
   "GJ-MAH": {
     mandiName: "Mahuva APMC",
     state: "Gujarat",
     district: "Bhavnagar",
     updatedToday: "Today, 07:45 AM",
-    gradeA: { min: 2950, modal: 3180, max: 3450 }, // White onions command premium for processing
-    urs: { min: 1950, modal: 2150, max: 2350 },
-    reject: { min: 700, modal: 850, max: 980 },
-    unassortedAverage: 2320,
+    gradeA: { min: 4100, modal: 4500, max: 4900 }, // White onions command premium for processing
+    urs: { min: 2700, modal: 3100, max: 3500 },
+    reject: { min: 1100, modal: 1500, max: 1900 },
+    unassortedAverage: 3400,
     dailyArrivalTonnes: 980,
-    trend: "+₹210/qtl (Bullish)"
+    trend: "+₹410/qtl (Bullish — Export Demand)"
   },
   "DL-AZD": {
     mandiName: "Azadpur Mandi",
     state: "Delhi",
     district: "North Delhi",
     updatedToday: "Today, 06:00 AM",
-    gradeA: { min: 3350, modal: 3600, max: 3850 },
-    urs: { min: 2300, modal: 2550, max: 2750 },
-    reject: { min: 900, modal: 1100, max: 1300 },
-    unassortedAverage: 2680,
+    gradeA: { min: 4800, modal: 5200, max: 5600 },
+    urs: { min: 3200, modal: 3700, max: 4100 },
+    reject: { min: 1400, modal: 1800, max: 2200 },
+    unassortedAverage: 4000,
     dailyArrivalTonnes: 2600,
     freightFromNashik: 340, // Freight cost per quintal
-    trend: "+₹180/qtl (High Demand)"
+    trend: "+₹480/qtl (High Festival Season Demand)"
   },
   "AP-KUR": {
     mandiName: "Kurnool APMC",
     state: "Andhra Pradesh",
     district: "Kurnool",
     updatedToday: "Today, 08:00 AM",
-    gradeA: { min: 2400, modal: 2580, max: 2750 },
-    urs: { min: 1550, modal: 1720, max: 1900 },
-    reject: { min: 550, modal: 680, max: 800 },
-    unassortedAverage: 1850,
+    gradeA: { min: 3100, modal: 3400, max: 3800 },
+    urs: { min: 2000, modal: 2350, max: 2700 },
+    reject: { min: 800, modal: 1100, max: 1400 },
+    unassortedAverage: 2600,
     dailyArrivalTonnes: 720,
-    trend: "-₹40/qtl (Soft)"
+    trend: "+₹120/qtl (Steady)"
   }
 };
 

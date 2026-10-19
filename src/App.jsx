@@ -32,9 +32,9 @@ function MainLayout() {
       <div>
         <Header />
 
-        {/* Global Floating Toast */}
+        {/* Global Floating Toast — always on top of all modals */}
         {toast && (
-          <div className="fixed top-16 right-4 sm:right-6 z-50 animate-in fade-in slide-in-from-top-3 duration-200 pointer-events-none">
+          <div className="fixed top-4 left-1/2 -translate-x-1/2 sm:left-auto sm:translate-x-0 sm:right-6 sm:top-16 z-[99999] animate-in fade-in slide-in-from-top-3 duration-200 pointer-events-none max-w-[90vw] sm:max-w-sm">
             <div className={`px-4 py-3 rounded-2xl shadow-2xl border backdrop-blur-xl flex items-center gap-2.5 text-xs font-mono font-bold ${
               toast.type === "error"
                 ? "bg-[#5F1C47]/95 border-[#EB87A9]/50 text-[#F8D5C2] shadow-[#5F1C47]/50"

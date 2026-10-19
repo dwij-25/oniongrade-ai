@@ -3,60 +3,39 @@
 
 export const SAMPLE_LOT_PRESETS = [
   {
-    id: "preset-mandi-basket",
-    title: "Lasalgaon Mandi Cane Basket Lot #LOT-MH-LAS-2615 (Field Grade A)",
-    description: "Authentic high-density red onion harvest heap in traditional woven cane basket at Lasalgaon APMC yard. Deep quercetin red tunic with uniform diameter.",
+    id: "preset-red-9bulbs",
+    title: "Lasalgaon Export Batch #LOT-MH-LAS-2701 (Premium Grade A Red)",
+    description: "Nine uniform deep-red Nashik Garwa onion bulbs on white calibration surface. High skin gloss, zero sprouting, excellent uniformity. Benchmark Grade A export lot.",
     region: "Lasalgaon APMC, Maharashtra",
-    variety: "Nashik Garwa Red",
-    imageSrc: "/samples/mandi_basket_sorting.jpg",
+    variety: "Nashik Red Garwa",
+    imageSrc: "/samples/onion_grade_a_9bulbs.png",
     isRealPhoto: true,
-    benchmarkCalibration: "Field sample captured at Lasalgaon Mandi arrival bay",
-    expectedSplit: { gradeA: 89, urs: 11, reject: 0 }
+    benchmarkCalibration: "User-submitted field sample — 9-bulb calibration tray",
+    expectedSplit: { gradeA: 88, urs: 12, reject: 0 }
   },
   {
-    id: "preset-farm-harvest",
-    title: "Niphad Farm Field Sorting Basin #LOT-MH-NIP-2618 (Farm Gate URS)",
-    description: "Direct farm gate harvest grading: sun-cured field heap sorted into stainless basins. Natural size variance (42-65mm) with dry healthy skins.",
+    id: "preset-sprouting-3bulbs",
+    title: "Reject Dispute Lot #LOT-MH-NIP-2704 (Sprouted + Black Mold)",
+    description: "Three bulbs with clear apical sprouting (left bulb has 18mm shoot), surface black mold patches, and deteriorating papery tunic. Classic reject-grade dispute scenario.",
     region: "Niphad Taluka, Nashik",
-    variety: "Pol Kharif Red",
-    imageSrc: "/samples/farm_harvest_grading.jpg",
+    variety: "Kharif Yellow",
+    imageSrc: "/samples/onion_sprouting_3bulbs.webp",
     isRealPhoto: true,
-    benchmarkCalibration: "Field sample captured during farmer post-harvest cure",
-    expectedSplit: { gradeA: 67, urs: 33, reject: 0 }
+    benchmarkCalibration: "User-submitted dispute lot — sprouting + necrosis detection test",
+    expectedSplit: { gradeA: 0, urs: 35, reject: 65 }
   },
   {
-    id: "preset-mandi-manual",
-    title: "APMC Floor Sorting Lot #LOT-MH-PIM-2622 (Commercial Red)",
-    description: "Mandi auction floor intake lot: worker grading premium red bulbs on burlap sacks. High skin gloss, zero sprouting.",
-    region: "Pimpalgaon APMC",
-    variety: "Rangda Red",
-    imageSrc: "/samples/mandi_manual_sorting.jpg",
-    isRealPhoto: true,
-    benchmarkCalibration: "Manual sorter benchmark trial batch",
-    expectedSplit: { gradeA: 78, urs: 22, reject: 0 }
-  },
-  {
-    id: "preset-mandi-shed",
-    title: "Lasalgaon Wholesale Covered Shed #LOT-MH-LAS-2625 (Warehouse Intake)",
-    description: "High-capacity wholesale mandi intake with stacked jute sacks and floor heaps awaiting digital scale certification.",
-    region: "Lasalgaon APMC Main Shed",
-    variety: "Garwa Export Reserve",
-    imageSrc: "/samples/lasalgaon_mandi_shed.png",
-    isRealPhoto: true,
-    benchmarkCalibration: "Warehouse intake lot inspection batch",
-    expectedSplit: { gradeA: 85, urs: 15, reject: 0 }
-  },
-  {
-    id: "preset-mandi-dispatch",
-    title: "Mandi Bulk Dispatch Basin #LOT-GJ-MAH-2630 (DoCA Buffer Scheme)",
-    description: "Bulk transfer basin loading: large uniform bulbs staged for NAFED national price stabilization dispatch.",
-    region: "Mahuva APMC Terminal",
+    id: "preset-red-premium-2bulbs",
+    title: "Mahuva Export Reserve #LOT-GJ-MAH-2712 (Super Grade A)",
+    description: "Two large deep-crimson red onion bulbs with exceptional skin gloss, tight intact scales, and zero surface defects. Top-tier export quality for Gulf and EU markets.",
+    region: "Mahuva APMC Terminal, Gujarat",
     variety: "Western Commercial Red",
-    imageSrc: "/samples/mandi_bulk_dispatch.jpg",
+    imageSrc: "/samples/onion_red_premium_2bulbs.jpg",
     isRealPhoto: true,
-    benchmarkCalibration: "DoCA Buffer reserve procurement trial",
-    expectedSplit: { gradeA: 80, urs: 20, reject: 0 }
+    benchmarkCalibration: "User-submitted premium lot — export-quality 2-bulb reference",
+    expectedSplit: { gradeA: 96, urs: 4, reject: 0 }
   },
+
   {
     id: "preset-grade-a",
     title: "Lasalgaon Mandi Export Batch #LOT-MH-LAS-2601 (Super Grade A)",

@@ -108,7 +108,19 @@ export function AuthProvider({ children }) {
   const openLoginModal = () => setIsLoginModalOpen(true);
   const closeLoginModal = () => setIsLoginModalOpen(false);
 
-  const openScanner = () => setIsScannerOpen(true);
+  const openScanner = () => {
+    // Only Farmer and APMC Officer roles are allowed to grade onions
+    if (isLoggedIn && (role === ROLES.FARMER || role === ROLES.OFFICER)) {
+      setIsScannerOpen(true);
+    } else {
+      // Prompt login with a descriptive message
+      showToast(
+        "Please log in as a Farmer or APMC Officer to access the AI Grading Terminal.",
+        "warning"
+      );
+      setIsLoginModalOpen(true);
+    }
+  };
   const closeScanner = () => setIsScannerOpen(false);
 
   return (
