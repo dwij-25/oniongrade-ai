@@ -4,10 +4,10 @@ import { TRANSLATIONS } from "../constants/translations";
 const LanguageContext = createContext(null);
 
 export const SUPPORTED_LANGUAGES = [
-  { code: "en", name: "English", label: "EN", native: "English", region: "National / Standard" },
-  { code: "hi", name: "हिन्दी (Hindi)", label: "हिन्दी", native: "हिन्दी", region: "राष्ट्रीय / उत्तर भारत" },
-  { code: "mr", name: "मराठी (Marathi)", label: "मराठी", native: "मराठी", region: "महाराष्ट्र (लासलगाव / पिंपळगाव)" },
-  { code: "gu", name: "ગુજરાતી (Gujarati)", label: "ગુજરાતી", native: "ગુજરાતી", region: "ગુજરાત (મહુવા / ભાવનગર)" }
+  { code: "en", name: "English", label: "EN", native: "English", flag: "🇮🇳", region: "National / Standard" },
+  { code: "hi", name: "हिन्दी (Hindi)", label: "हिन्दी", native: "हिन्दी", flag: "🇮🇳", region: "राष्ट्रीय / उत्तर भारत" },
+  { code: "mr", name: "मराठी (Marathi)", label: "मराठी", native: "मराठी", flag: "🧅", region: "महाराष्ट्र (लासलगाव / पिंपळगाव)" },
+  { code: "gu", name: "ગુજરાતી (Gujarati)", label: "ગુજરાતી", native: "ગુજરાતી", flag: "🌾", region: "ગુજરાત (મહુવા / ભાવनगर)" }
 ];
 
 export function LanguageProvider({ children }) {

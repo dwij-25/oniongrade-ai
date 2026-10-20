@@ -152,7 +152,7 @@ export default function PublicLanding({ onOpenLoginWithRole }) {
       <div className="relative pt-2 sm:pt-4 pb-10 px-3 sm:px-6" ref={heroRootRef}>
         <div className="absolute inset-0 max-h-[860px] overflow-hidden pointer-events-none -z-10">
           <img
-            src="/samples/farm_harvest_grading.jpg"
+            src="/samples/onion_graded_hero.png"
             alt="Agricultural backdrop"
             className="w-full h-full object-cover blur-3xl opacity-20 scale-110 filter saturate-150"
           />
@@ -284,7 +284,7 @@ export default function PublicLanding({ onOpenLoginWithRole }) {
             {/* Card 1: Visual Telemetry Scan Card */}
             <div className="relative h-[255px] sm:h-[280px] rounded-3xl overflow-hidden border border-white/10 group shadow-lg flex flex-col justify-between p-3.5 sm:p-4">
               <img
-                src="/samples/farm_harvest_grading.jpg"
+                src="/samples/onion_graded_hero.png"
                 alt="Visual Telemetry"
                 className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
